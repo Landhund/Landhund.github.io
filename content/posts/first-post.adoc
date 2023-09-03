@@ -1,0 +1,48 @@
+---
+title: "First Post"
+date: 2023-09-03T07:50:52+02:00
+draft: true
+---
+
+## Introduction
+
+Hi, this is the first test-post on my new blog!
+I have almost _no_ idea what I'm doing, but so far it seems to work out!
+
+## Code Block Test
+
+[source,java]
+----
+class Hello {
+    String hello() {
+        return "Hello";
+    }
+}
+----
+
+## Admonitions Test
+
+[NOTE]
+====
+This is a NOTE
+====
+
+[CAUTION]
+====
+This is a CAUTION
+====
+
+[WARNING]
+====
+This is a WARNING
+====
+
+[TIP]
+====
+This is a TIP
+====
+
+[IMPORTANT]
+====
+This is IMPORTANT
+====

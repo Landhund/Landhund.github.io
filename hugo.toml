@@ -1,0 +1,92 @@
+baseURL = 'https://landhund.github.io/'
+languageCode = 'en-us'
+title = 'Mad CAD IT'
+theme = "hello-friend-ng"
+enableEmoji     = true
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+paginate  = 10
+rssLimit  = 100
+copyright = "This work is licensed under a MIT License."
+
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+canonifyURLs = true
+
+[security.exec]
+    allow = ['^asciidoctor$']
+[params]
+    custom_css = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css", "/static/css/adoc.css"]
+    dateform        = "Jan 2, 2006"
+    dateformShort   = "Jan 2"
+    dateformNum     = "2006-01-02"
+    dateformNumTime = "2006-01-02 15:04"
+
+    # Subtitle for home
+    homeSubtitle = "A Tech Blog of Random Thoughts"
+
+    # Set disableReadOtherPosts to true in order to hide the links to other posts.
+    disableReadOtherPosts = false
+
+    # Enable sharing buttons, if you like
+    enableSharingButtons = true
+
+    # Show a global language switcher in the navigation bar
+    enableGlobalLanguageMenu = true
+
+    # Metadata mostly used in document's head
+    description = "My new homepage or blog"
+    keywords = "homepage, blog"
+    images = [""]
+    [params.footer]
+        trademark = true
+        rss = true
+        copyright = true
+        author = true
+
+        topText = []
+        bottomText = [
+        "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+        "Theme <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">hello-friend-ng</a> by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+        ]
+    [params.logo]
+        logoMark     = ">"
+        logoText     = "$ cd /home/"
+        logoHomeLink = "/"
+[markup]
+    [markup.asciidocExt]
+        [markup.asciidocExt.attributes]
+            allow-uri-read = ""
+            source-highlighter = "rouge"
+            rouge-css = "style"
+            rouge-style = "thankful_eyes"
+            imagesdir = "/images"
+            icons = "font"
+[security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
+[taxonomies]
+    category = "blog"
+    tag      = "tags"
+    series   = "series"
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
+[author]
+  name = "Felix Dreier"
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "posts/"

@@ -43,7 +43,7 @@ canonifyURLs = true
     enableGlobalLanguageMenu = true
 
     # Metadata mostly used in document's head
-    description = "My new homepage or blog"
+    description = "An electrical engineer battles with IT and CAD software"
     keywords = "homepage, blog"
     images = [""]
     [params.footer]

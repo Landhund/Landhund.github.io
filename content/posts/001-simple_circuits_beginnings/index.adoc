@@ -1,5 +1,5 @@
 ---
-title: "Simple Circuits: The Beginnings"
+title: "Easy Wiring: The Beginnings"
 summary: "How bad Software started my Hubris"
 tags: ["Easy_Wiring", "Blog", "Electrical"]
 date: 2024-02-25

@@ -21,6 +21,8 @@ publishDir   = "public"
 
 canonifyURLs = true
 
+enableGitInfo = true
+
 [security.exec]
     allow = ['^asciidoctor$']
 [params]
@@ -63,13 +65,18 @@ canonifyURLs = true
         logoText     = "$ cd /home/"
         logoHomeLink = "/"
 [markup]
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 5
+        ordered = false
     [markup.asciidocExt]
+        workingFolderCurrent = true
         [markup.asciidocExt.attributes]
             allow-uri-read = ""
             source-highlighter = "rouge"
             rouge-css = "style"
             rouge-style = "thankful_eyes"
-            imagesdir = "/images"
+            #imagesdir = "./images"
             icons = "font"
 [security.http]
     methods = ['(?i)GET|POST']

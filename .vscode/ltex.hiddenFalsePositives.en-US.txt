@@ -1,0 +1,1 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwith 12 inputs and 8 outputs in top condition for just €60, about\\E$"}

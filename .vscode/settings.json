@@ -1,5 +1,9 @@
 {
     "cSpell.language": "en",
-    "ltex.language": "en-US",
-    "asciidoc.antora.enableAntoraSupport": true
+    "ltex.language": "en-GB",
+    "asciidoc.antora.enableAntoraSupport": true,
+    "cSpell.words": [
+        "Altium",
+        "profi"
+    ]
 }

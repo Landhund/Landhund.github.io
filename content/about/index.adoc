@@ -1,7 +1,7 @@
 ---
 title: "About MAD CAD IT"
 date: 2024-02-25
-draft: true
+draft: false
 ---
 
 == About the Blog

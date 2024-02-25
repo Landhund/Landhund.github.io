@@ -185,16 +185,23 @@ Anyway, before I derail myself completely writing stuff I've already written som
 After looking around with my idea now fixed in my brain (somewhat against my wishes), I've looked around for an idea of how to realize the "canvas" where all the elements and connections would be placed and manipulated.
 The issue is, that I've never written something like that.
 I've written GUI's before, sure, but only using libraries.
-But a canvas like I need for project was/is something I don't even now where to start with.
+But a canvas like one I need for the project was/is something I don't even now where to start with.
 
 Luckily I don't have to!
-https://excalidraw.com/[Excalidraw] already has a wide array of features I could use and is [.line-through]#free for the taking# open source.
+https://excalidraw.com/[Excalidraw] already has a wide array of features I could use and is (luckily) open source.
 
 Funnily enough I stumbled over Excalidraw while looking for a tool to export my Mermaid diagram to PDF.
-When I imported the diagram to it, I was amazed to see the created lines automatically moving to stay connected with their endpoint-elements when I accidentally move a block.
+When I imported the diagram to it, I was amazed to see the created lines automatically moving to stay connected with their endpoint-elements when I accidentally moved a block.
 
-So I've downloaded its https://github.com/excalidraw/excalidraw[source code] from GitHub, validated I could run it locally (which was surprisingly easy) and now plan to rip out everything I don't need and hammer the rest into the desired shape footnote:[You may be able to tell that I've got some experience on construction sides...]
+So I've downloaded its https://github.com/excalidraw/excalidraw[source code] from GitHub, validated I could run it locally (which was surprisingly easy) and now plan to rip out everything I don't need and hammer the rest into the desired shape. footnote:[You may be able to tell that I've got some experience on construction sides...]
 
 === Deployment/Release
 
-Since I don't want to care for an online service, I've taken the recommendation of a friend of mine, who's a professional web-developer, and decided to use https://tauri.app/[Tauri] to (at some point) create releases.
+Since I don't want to care for an online service, I've taken the recommendation of a friend of mine (who's a professional web-developer) and decided to use https://tauri.app/[Tauri] to (at some point) create releases.
+
+
+== The Future
+
+I wouldn't hold my breath as to when I'll be able to get this project going.
+I really want to actually write it, but until at least August my free time is _very_ limited supply.
+But who knows, maybe eventually I'll really sink my teeth into it...

@@ -26,12 +26,12 @@ enableGitInfo = true
 [security.exec]
     allow = ['^asciidoctor$']
 [params]
+    gitURL = 'https://github.com/Landhund/Landhund.github.io'
     custom_css = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css", "/static/css/adoc.css"]
     dateform        = "Jan 2, 2006"
     dateformShort   = "Jan 2"
     dateformNum     = "2006-01-02"
-    # dateformNumTime = "2006-01-02 15:04"
-    dateformNumTime = "Jan 2, 2006"
+    dateformNumTime = "2006-01-02 15:04"
 
     # Subtitle for home
     homeSubtitle = "A Tech Blog of Random Thoughts"
@@ -58,7 +58,7 @@ enableGitInfo = true
         topText = []
         bottomText = [
         "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
-        "Theme <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">hello-friend-ng</a> by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+        "Theme: <a href=\"https://github.com/Landhund/hugo-theme-hello-friend-ng\">Custom Version</a> of <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">hello-friend-ng</a> by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
         ]
     [params.logo]
         logoMark     = ">"

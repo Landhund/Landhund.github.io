@@ -11,15 +11,11 @@
 
             <h1>{{ .Site.Title }}</h1>
 
-            <h2>{{ partial "subtitle.html" . }}</h2>
+            <h3>{{ partial "subtitle.html" . }}</h3>
 
-            Latest Post:
-            <br>
-            {{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            <br>
-            {{ time.Format "2 Jan 2006" .Date }}
-            {{end}}
+            <div>
+                {{ partial "latest-posts.html" . }}
+            </div>
             {{- with .Site.Params.social }}
                 <div>
                     {{ partial "social-icons.html" . }}

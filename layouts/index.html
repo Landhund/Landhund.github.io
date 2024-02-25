@@ -15,7 +15,7 @@
 
             Latest Post:
             <br>
-            {{ range ( where .Site.RegularPages "Type" "blog" | first 1 ) }}
+            {{ range ( where .Site.RegularPages "Type" "posts" | first 1 ) }}
             <a href="{{ .Permalink }}">{{ .Title }}</a>
             <br>
             {{ time.Format "2 Jan 2006" .Date }}

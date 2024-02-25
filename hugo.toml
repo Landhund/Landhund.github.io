@@ -28,7 +28,8 @@ canonifyURLs = true
     dateform        = "Jan 2, 2006"
     dateformShort   = "Jan 2"
     dateformNum     = "2006-01-02"
-    dateformNumTime = "2006-01-02 15:04"
+    # dateformNumTime = "2006-01-02 15:04"
+    dateformNumTime = "Jan 2, 2006"
 
     # Subtitle for home
     homeSubtitle = "A Tech Blog of Random Thoughts"
@@ -40,14 +41,14 @@ canonifyURLs = true
     enableSharingButtons = true
 
     # Show a global language switcher in the navigation bar
-    enableGlobalLanguageMenu = true
+    enableGlobalLanguageMenu = false
 
     # Metadata mostly used in document's head
     description = "An electrical engineer battles with IT and CAD software"
     keywords = "homepage, blog"
     images = [""]
     [params.footer]
-        trademark = true
+        trademark = 2024
         rss = true
         copyright = true
         author = true

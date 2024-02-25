@@ -1,0 +1,24 @@
+---
+title: "About MAD CAD IT"
+date: 2024-02-25
+draft: true
+---
+
+== About the Blog
+
+You've found my blog!
+Not sure how you managed to find it, but I'm glad you did.
+
+Currently, there isn't a whole lot to see, since I mostly use this to occasionally dump some ideas or thoughts from my brain into some more permanent media.
+
+But fret you not, I have an RSS-feed!
+For some reason...
+Does anybody still use RSS-feeds?
+For more than following webcomics?
+
+== About Me
+
+I'm an electrician by trade, a nerd by passion and an electrical engineer by profession.
+This mix of skills and passions has led me into an odd position where I have to deal with both rough-tough contractors, ivory-tower IT-security specialists and misbehaving servers and computers with phantom directories that simply can't be deleted.
+
+I love it!

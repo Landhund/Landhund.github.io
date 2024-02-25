@@ -1,4 +1,5 @@
 {
     "cSpell.language": "en",
-    "ltex.language": "en-US"
+    "ltex.language": "en-US",
+    "asciidoc.antora.enableAntoraSupport": true
 }

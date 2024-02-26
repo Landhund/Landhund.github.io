@@ -11,7 +11,7 @@ PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 paginate  = 10
 rssLimit  = 100
-copyright = "This work is licensed under a MIT License."
+copyright = "Licensed under MIT License."
 
 archetypeDir = "archetypes"
 contentDir   = "content"
@@ -55,7 +55,7 @@ enableGitInfo = true
         copyright = true
         author = true
 
-        topText = []
+        topText = ["<a href=\"https://www.buymeacoffee.com/felixdreie3\" target=\"_blank\">Buy Me A Coffee</a>"]
         bottomText = [
         "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
         "Theme: <a href=\"https://github.com/Landhund/hugo-theme-hello-friend-ng\">Custom Version</a> of <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">hello-friend-ng</a> by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
@@ -64,6 +64,8 @@ enableGitInfo = true
         logoMark     = ">"
         logoText     = "$ cd /home/"
         logoHomeLink = "/"
+    [params.author]
+      name = "Felix Dreier"
 [markup]
     [markup.tableOfContents]
         startLevel = 2
@@ -84,17 +86,26 @@ enableGitInfo = true
 [taxonomies]
     category = "blog"
     tag      = "tags"
-    series   = "series"
+    # series   = "series"
 [permalinks]
   posts = "/posts/:year/:month/:title/"
-[author]
-  name = "Felix Dreier"
 [menu]
   [[menu.main]]
     identifier = "about"
     name       = "About"
     url        = "about/"
+    weight     = 10
+
   [[menu.main]]
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+    weight     = 1
+  [[menu.main]]
+    identifier = "dev-log"
+    name       = "Dev Log"
+    url        = "dev-log/"
+    weight     = 100
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']

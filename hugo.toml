@@ -64,6 +64,8 @@ enableGitInfo = true
         logoMark     = ">"
         logoText     = "$ cd /home/"
         logoHomeLink = "/"
+    [params.author]
+        name = "Felix Dreier"
 [markup]
     [markup.tableOfContents]
         startLevel = 2
@@ -87,8 +89,8 @@ enableGitInfo = true
     series   = "series"
 [permalinks]
   posts = "/posts/:year/:month/:title/"
-[author]
-  name = "Felix Dreier"
+#[author]
+#  name = "Felix Dreier"
 [menu]
   [[menu.main]]
     identifier = "about"

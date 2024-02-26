@@ -1,0 +1,15 @@
+= Landhund.github.io
+
+Hi there!
+This is the repository for my blog https://landhund.github.io/[MAD CAD IT], hosted via https://gohugo.io/[Hugo] on https://pages.github.com/[GitHub Pages].
+
+If you've come here to have a look at how I've done it, ...
+Well, you are welcome to have a look around, it's a public repo after all, but don't expect too much in the way of documentation.
+I haven't gotten around to write much of it.
+
+If I'm honest, I'm not even sure if I remember everything I did when I first set this up...
+But it works!
+For now.
+
+If, despite all this, you still think this project is worth some support, you can: +
+image:https://cdn.buymeacoffee.com/buttons/default-black.png[Buy Me A Coffee, link=https://www.buymeacoffee.com/felixdreie3, title="Buy Me A Coffee"]

@@ -1,7 +1,8 @@
 ---
 title: "About MAD CAD IT"
-date: 2024-02-25
+date: 2024-02-25T08:23:00+02:00
 draft: false
+type: 'posts'
 ---
 
 == About the Blog
@@ -22,3 +23,8 @@ I'm an electrician by trade, a nerd by passion and an electrical engineer by pro
 This mix of skills and passions has led me into an odd position where I have to deal with both rough-tough contractors, ivory-tower IT-security specialists and misbehaving servers and computers with phantom directories that simply can't be deleted.
 
 I love it!
+
+== Support
+
+If you like my work and if you think this project is worth some support (for some reason), you can: +
+image:https://cdn.buymeacoffee.com/buttons/default-black.png[Buy Me A Coffee, link=https://www.buymeacoffee.com/felixdreie3, title="Buy Me A Coffee"]

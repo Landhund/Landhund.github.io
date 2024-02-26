@@ -100,12 +100,3 @@ enableGitInfo = true
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
-    weight     = 1
-  [[menu.main]]
-    identifier = "dev-log"
-    name       = "Dev Log"
-    url        = "dev-log/"
-    weight     = 100
-[outputs]
-  home = ['html', 'rss']
-  section = ['html', 'rss']

@@ -1,4 +1,4 @@
-baseURL = 'https://landhund.github.io/'
+baseURL = 'https://www.mad-cad-it.com/'
 languageCode = 'en-us'
 title = 'Mad CAD IT'
 theme = "hello-friend-ng"
@@ -100,3 +100,7 @@ enableGitInfo = true
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+[imaging]
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true

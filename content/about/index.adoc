@@ -3,6 +3,8 @@ title: "About MAD CAD IT"
 date: 2024-02-25T08:23:00+02:00
 draft: false
 type: 'posts'
+summary: "An electrical engineer battles with IT and CAD software."
+description: "An electrical engineer battles with IT and CAD software."
 ---
 
 == About the Blog

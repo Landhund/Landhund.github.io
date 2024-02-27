@@ -1,6 +1,44 @@
 ---
 title: "Dev Log from 2024-02-26"
 date: 2024-02-26T18:45:00+02:00
+draft: false
+tags: ['Dev Log']
+type: 'posts'
+---
+
+:sectnums: all
+
+A lot of things happened!
+
+== The Dev Log
+
+First up, I've started this devlog, mostly I myself can track what I'm doing to the poor structure of this blog.
+At least in a more human-readable format than git diffs and https://xkcd.com/1296/[commit messages].
+
+This includes a slight reshuffle of the top-menu buttons.
+
+== The Readme
+
+I've finally written a (short) Readme for the Repo of this blog.
+I doesn't contain a whole lot, but it exists.
+
+== Cleanup
+
+Cleaned up the documentation of the https://github.com/Landhund/hugo-theme-hello-friend-ng[theme repo].
+It still references the original authors, but now correctly identifies me as the maintainer of this fork.
+
+== Commit Details
+
+Now the Commit Hash in the footer of posts shows the Commit Message as a tooltip.
+I've also started work on a Partial for more detailed Commit readouts, but it doesn't do much for now.
+Ideally I get it to some day display an actual Git Diff...
+
+== Coffee?
+
+Last but not least, I've set up a https://www.buymeacoffee.com/felixdreie3[buymeacoffee.com] account, in the very unlikely case someone thinks this project is worth supporting.
+---
+title: "Dev Log from 2024-02-26"
+date: 2024-02-26T18:45:00+02:00
 draft: true
 tags: ['Dev Log']
 type: 'posts'

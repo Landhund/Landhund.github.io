@@ -4,6 +4,8 @@ date: 2023-09-03T09:36:00+02:00
 draft: false
 ---
 
+:icons: font
+
 ## Introduction
 
 Hi, this is the first test-post on my new blog!
@@ -26,6 +28,8 @@ class Hello {
 ====
 This is a NOTE
 ====
+
+NOTE: Test Note V2
 
 [CAUTION]
 ====

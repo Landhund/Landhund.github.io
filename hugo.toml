@@ -100,3 +100,7 @@ enableGitInfo = true
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"

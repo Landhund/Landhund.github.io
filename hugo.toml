@@ -28,8 +28,8 @@ enableGitInfo = true
 [params]
     gitURL = 'https://github.com/Landhund/Landhund.github.io'
     custom_css = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"]
-    dateform        = "Jan 2, 2006"
-    dateformShort   = "Jan 2"
+    dateform        = "January 2, 2006"
+    dateformShort   = "Jan 2, '06"
     dateformNum     = "2006-01-02"
     dateformNumTime = "2006-01-02 15:04"
 
@@ -66,6 +66,7 @@ enableGitInfo = true
         logoHomeLink = "/"
     [params.author]
       name = "Felix Dreier"
+      email = "felix@mad-cad-it.com"
 [markup]
     [markup.tableOfContents]
         startLevel = 2

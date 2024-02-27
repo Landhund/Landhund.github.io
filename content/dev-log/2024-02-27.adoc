@@ -1,0 +1,72 @@
+---
+title: "Dev Log from 2024-02-27"
+date: 2024-02-27T21:51:00+02:00
+draft: false
+tags: ['Dev Log']
+type: 'dev-log'
+summary: "Domains, DNS, and Layouts"
+description: "Domains, DNS, and Layouts"
+toc: true
+---
+
+:toc:
+:sectnums: all
+
+== Custom Domain
+
+First things first: I've gotten myself a domain name!
+I know this isn't a very big deal for pretty much any IT-nerd, but it was nonetheless something special for me.
+
+The most interessting part of all this was setting the DNS-redirects up in such a way that GitHub Pages correctly interfaces with the domain.
+I definitely have to take the time to write a full post on this, since the info I've found wasn't 100% usefull or correct on all accounts.
+If only I had more time...
+
+== Layouts
+
+I've done a whole lot of tinkering with the https://github.com/Landhund/hugo-theme-hello-friend-ng[theme].
+It's surprisingly fun to mess with various (s)css settings, html-codes and Hugo partials.
+
+=== Fixed Top Bar
+
+==== Improper Z-Levels
+"Biggest" change is the now fixed (well, "sticky", technically) top bar.
+Had some interessting challenges with it:
+At first I had footnotes and the read-time display overlaying it when scrolling.
+Turns out that everything was drawn on the same z-level and everything that was defined (either in css or html, can't remember, sorry) after it, was drawn above it.
+Fixed it by setting the z-level of the top bar to 100.
+Bit overkill, but hey, who cares.
+
+==== Incorrect Section Jumping
+
+Then jumping to sections via the table of contents was borked.
+Turns out the browser was simply acting as always, scrolling in such a way, that the section title in question was just under the upper edge of the browser window.
+Where now the top bar resides permanently.
+Luckily the `scroll-padding-top` css-setting exists and fixes exactly this issue.
+I'm just not sure if having it lonely inside a `html` key atop the `_header.scss` file is the best way to enforce it...
+
+== Unified Posts-Layout
+
+I've deactivated the posts `single.html` layout and instead set the default one to be used with all the new features.
+After all, they are nice features.
+
+I also split all the post info snippets into discreet partials, so they can be reused easily later.
+
+== Post Info
+
+Speaking of Post Info, I've tinkered a bit with that as well, so now the publishing date is listed after the summary, as well as some small QoL adjustments.
+
+== Admonition Icons
+
+A big one for personal reason: I've _finally_ got AsciiDoc Admonition Icons working!
+Turns out, all I had to do was register at fontawesome.com[Font Awesome] and add my code to the head file.
+Still have to improve how the actual admonitions are rendered, but that looks to be much easier.
+
+== Contact via Email
+
+Since my domain registration came with a free email-account, I've changed the Author Name link in the footer to be a `mailto:` link to said email.
+Just in case someone wants to write me.
+
+
+== And More
+
+I've done a bunch of other small stuff as well, but honestly, I can't remember all of it and don't want to crawl through the commit messages.

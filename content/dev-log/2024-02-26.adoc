@@ -3,12 +3,12 @@ title: "Dev Log from 2024-02-26"
 date: 2024-02-26T18:45:00+02:00
 draft: false
 tags: ['Dev Log']
-type: 'posts'
+type: 'dev-log'
+summary: "A lot of things happened!"
+description: "A lot of things happened!"
 ---
 
 :sectnums: all
-
-A lot of things happened!
 
 == The Dev Log
 

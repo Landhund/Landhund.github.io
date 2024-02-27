@@ -1,6 +1,7 @@
 ---
 title: "Easy Wiring: The Beginnings"
 summary: "How bad Software started my Hubris"
+description: "How bad Software started my Hubris"
 tags: ["Easy_Wiring", "Blog", "Electrical"]
 date: 2024-02-25T14:25:00+02:00
 draft: false

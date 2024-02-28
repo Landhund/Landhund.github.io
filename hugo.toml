@@ -34,7 +34,7 @@ enableGitInfo = true
     dateformNumTime = "2006-01-02 15:04"
 
     # Subtitle for home
-    homeSubtitle = "A Tech Blog of Random Thoughts"
+    homeSubtitle = "An Electrical Engineer battles with IT and CAD Software"
 
     # Set disableReadOtherPosts to true in order to hide the links to other posts.
     disableReadOtherPosts = false

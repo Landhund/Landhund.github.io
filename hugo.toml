@@ -11,7 +11,7 @@ PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 paginate  = 10
 rssLimit  = 100
-copyright = "MIT License."
+copyright = "MIT License"
 
 archetypeDir = "archetypes"
 contentDir   = "content"
@@ -61,8 +61,8 @@ enableGitInfo = true
         "Hosted on <a href=\"https://github.com/Landhund/Landhund.github.io\">GitHub Pages</a>"
         ]
     [params.logo]
-        #logoMark     = "$"
-        logoText     = "cd /home/"
+        logoMark     = "$"
+        logoText     = "MCI> cd /home/"
         logoHomeLink = "/"
     [params.author]
       name = "Felix Dreier"

@@ -1,0 +1,33 @@
+---
+title: 'TES V: Skyrim - BLOG EDITION'
+summary: Tinkering is way more fun than actually using...
+description: Tinkering is way more fun than actually using...
+date: 2024-03-02T13:23:00+01:00
+draft: false
+tags: ["Blog","Web-Dev"]
+cover: skyrim-blog-edition.jpg
+---
+
+Honestly, the (sub-)title of this post kinda says it all:
+This blog is kinda turning into a weird version of Skyrim for me.
+footnote:[If this reference is lost to, you are _probably_ not quite the target audience of this blog. Nothing personal.]
+
+This last week I've been incessantly tinkering with this blog, almost all of it behind the scenes.
+Messing with the css, layouts, features, goddamn DNS configurations, etm.
+
+The draft for the next "serious" post about the progress
+footnote:[Spoiler: there is no progress]
+on the Simple Wiring project (the very thing that reminded me that I even had set up this blog half a year ago) still only consists of about 2 dozen words, and only if I count "I"s and "a"s as individual words.
+
+But oh man, can tinkering be fun.
+Well, at least when it is not frustrating.
+But isn't that always the case with software and IT?
+Who of us hasn't modded Skyrim for almost more time than they actually played it for?
+And even to the point where it wouldn't even work at all, even after you've removed all the mods and had to completely delete every trace of it from your system, reinstall it, and start again from scratch.
+
+
+So yeah, my relationship with this blog at the moment very much looks like this:
+
+image::https://imgur.com/rQIb4Vw.gif[]
+
+I guess my ADHD has found another hyperfocus for the moment.

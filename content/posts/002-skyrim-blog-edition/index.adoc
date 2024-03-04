@@ -10,7 +10,7 @@ cover: skyrim-blog-edition.jpg
 
 Honestly, the (sub-)title of this post kinda says it all:
 This blog is kinda turning into a weird version of Skyrim for me.
-footnote:[If this reference is lost to, you are _probably_ not quite the target audience of this blog. Nothing personal.]
+footnote:[If you don't know what Skyrim is, you are _probably_ not quite the target audience of this blog. Nothing personal.]
 
 This last week I've been incessantly tinkering with this blog, almost all of it behind the scenes.
 Messing with the css, layouts, features, goddamn DNS configurations, etm.

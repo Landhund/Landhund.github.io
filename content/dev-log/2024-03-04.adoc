@@ -1,0 +1,35 @@
+---
+title: "Dev Log for 2024-03-04"
+date: 2024-03-04T17:13:00+01:00
+draft: false
+tags: ['Dev Log']
+type: 'dev-log'
+summary: "Lots of Layout changes"
+description: "Lots of Layout changes"
+# toc: true
+---
+
+// :toc:
+
+Not a whole lot of exiting stuff since the last time I bothered to write one of these.
+
+I mostly fiddled with the styling of the blog.
+
+* Messed around with the info/links contained in the footer.
+** Funnily enough I now have https://github.com/Landhund/hugo-theme-hello-friend-ng/commit/32cfc49481dee60d56effed4b0bfb4848fc5414b[two separate links] to the repo of the blog...
+* Improved the rendering of https://github.com/Landhund/hugo-theme-hello-friend-ng/commit/01712e3582166d692b614c3ff0457bca55bd7f4e[admonition blocks]
+** Not a fun experience in the (s)css-mines...
+Only a small change was needed, but _finding_ what needed changing was a chore.
+* Redid almost the entire https://github.com/Landhund/hugo-theme-hello-friend-ng/commit/afa94b285aa6ca2927a60d48c8b9bd4928f79009[formatting of the footer partial html].
+It was a complete compacted mess, almost impossible for a human to parse.
+Now it's over 30 lines longer, but much more readable and editable.
+* Added properly created and configured https://github.com/Landhund/Landhund.github.io/commit/c0e6eec9ac279ea33d3e3d67827269ae8a56b840[favicons], including a working webmanifest
+** Turns out that documention contains https://github.com/Landhund/hugo-theme-hello-friend-ng/commit/a47e4169a89f3eb60194b9525ad18e25393836fb#diff-ac7df548abdedf392d30e5caa44708ce64756c0b21f0c0c7beac4339dd74a122[valuable information]...
+* Fiddled with the logo and title of the main page.
+** Still not _entirely_ happy with the results, I'll definitely fiddle with it https://github.com/Landhund/hugo-theme-hello-friend-ng/issues/4[a bit more]
+
+
+Fun fact at the end:
+I've learned that Google has indexed my blog once I've got my first spam-mail via the link in the footer.
+I was surprised how quickly both of them worked!
+And I'm very happy my spamfilter has coughed everything thrown at me so far.

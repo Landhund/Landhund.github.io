@@ -8,3 +8,14 @@ profiCAD
 Altium
 io
 Excalidraw
+
+dynadot
+ssl-certificate
+certbot
+dynadot-dns-bash
+Certbot
+EFF
+dns
+certonly
+api
+%collapsible

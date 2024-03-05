@@ -77,8 +77,8 @@ enableGitInfo = true
         [markup.asciidocExt.attributes]
             allow-uri-read = ""
             source-highlighter = "highlight.js"
-            rouge-css = "style"
-            rouge-style = "thankful_eyes"
+            #rouge-css = "style"
+            #rouge-style = "thankful_eyes"
             #imagesdir = "./images"
             icons = "font"
 [security.http]

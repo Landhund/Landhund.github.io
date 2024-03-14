@@ -2,7 +2,7 @@
 title: "Dev Log from 2024-02-27"
 date: 2024-02-27T21:51:00+02:00
 draft: false
-tags: ['Dev Log']
+series: ['Dev-Log']
 type: 'dev-log'
 summary: "Domains, DNS, and Layouts"
 description: "Domains, DNS, and Layouts"

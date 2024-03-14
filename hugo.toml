@@ -87,8 +87,7 @@ enableGitInfo = true
 [taxonomies]
     category = "blog"
     tag      = "tags"
-    # series   = "series"
-    # series   = "series"
+    series   = "series"
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 [menu]
@@ -103,6 +102,11 @@ enableGitInfo = true
     name       = "Posts"
     url        = "posts/"
     weight     = 1
+  [[menu.main]]
+    identifier = "series"
+    name       = "Series"
+    url        = "series/"
+    weight     = 2
   [[menu.main]]
     identifier = "dev-log"
     name       = "Dev Log"

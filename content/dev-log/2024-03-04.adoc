@@ -2,7 +2,7 @@
 title: "Dev Log for 2024-03-04"
 date: 2024-03-04T17:13:00+01:00
 draft: false
-tags: ['Dev Log']
+series: ['Dev-Log']
 type: 'dev-log'
 summary: "Lots of Layout changes"
 description: "Lots of Layout changes"

@@ -6,6 +6,7 @@ tags: ["Easy_Wiring", "Blog", "Electrical"]
 date: 2024-02-25T14:25:00+02:00
 draft: false
 toc: true
+series: ["Easy_Wiring"]
 ---
 
 :toc:

@@ -6,7 +6,7 @@ date: 2024-03-11T16:00:00+01:00
 draft: false
 tags: ["Blog", "Web-Dev", "Bash", "DNS", "Synology", "API"]
 toc: true
-series: "dynadot-dns-bash"
+series: ["Dynadot-DNS-Bash"]
 ---
 
 :toc:

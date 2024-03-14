@@ -11,7 +11,7 @@ PygmentsCodeFences = true
 PygmentsStyle = "monokai"
 paginate  = 10
 rssLimit  = 100
-copyright = "Licensed under MIT License."
+copyright = "MIT License"
 
 archetypeDir = "archetypes"
 contentDir   = "content"
@@ -58,11 +58,11 @@ enableGitInfo = true
         topText = ["<a href=\"https://www.buymeacoffee.com/felixdreie3\" target=\"_blank\">Buy Me A Coffee</a>"]
         bottomText = [
         "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
-        "Theme: <a href=\"https://github.com/Landhund/hugo-theme-hello-friend-ng\">Custom Version</a> of <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">hello-friend-ng</a> by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+        "Hosted on <a href=\"https://github.com/Landhund/Landhund.github.io\">GitHub Pages</a>"
         ]
     [params.logo]
-        logoMark     = ">"
-        logoText     = "$ cd /home/"
+        logoMark     = "$"
+        logoText     = "MCI> cd /home/"
         logoHomeLink = "/"
     [params.author]
       name = "Felix Dreier"
@@ -76,9 +76,9 @@ enableGitInfo = true
         workingFolderCurrent = true
         [markup.asciidocExt.attributes]
             allow-uri-read = ""
-            source-highlighter = "rouge"
-            rouge-css = "style"
-            rouge-style = "thankful_eyes"
+            source-highlighter = "highlight.js"
+            #rouge-css = "style"
+            #rouge-style = "thankful_eyes"
             #imagesdir = "./images"
             icons = "font"
 [security.http]

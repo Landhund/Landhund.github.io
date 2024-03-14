@@ -1,0 +1,288 @@
+---
+title: Editing dynadot DNS-settings via API-calls in Bash, Part 1
+summary: Three diversion deep, bash-ing my head against 30-year-old syntax
+description: Three diversion deep, bash-ing my head against 30-year-old syntax
+date: 2024-03-11T16:00:00+01:00
+draft: false
+tags: ["Blog", "Web-Dev", "Bash", "DNS", "Synology", "API"]
+toc: true
+series: "dynadot-dns-bash"
+---
+
+:toc:
+:icons: font
+
+WARNING: The way I've done things here is most certainly *not any form of ideal or proper.*
+I'm an amateur coder, I smash rocks together until something sticks, and it starts working.
+I just hope that at some point in the future this post may be of help to someone trying something similar.
+After all, that's why I started this blog.
+
+NOTE: This is part 1 of (at least) 3 in my series of getting automatic SSL-cert renewals working on my Synology. +
+This part covers how to read (and write) DNS-settings to dynadot via its API with bash. +
+Part 2 will cover how to use this to automatically create an SSL-certificate with certbot. +
+Part 3 will be about how to then automatically replace the SSL-certificate in a Synology NAS.
+(Let's see if I can get there before the current cert expires...)
+
+== Intro
+
+Usually, SSL-certificates are renewed automatically nowadays.
+But unfortunately, when you cut corners to save money{empty}footnote:[Like when, I don't know, you are back in school to study for your master electrician certificate. Just for example...], not everything works as it should or even as you hope.
+I find myself in the awkward position where my Synology NAS is now available (to myself, friends and family) via a subdomain of this blog, at least over IPv6.
+Mostly just to see if I could figure out how to do that.
+
+And I did!
+It even has a valid SSL-certificate.
+That will expire in about a month and my Synology isn't able to automatically renew it.
+_Yet._
+
+This is most likely caused by something between https://letsencrypt.org/[Let's Encrypt] and my NAS that's blocking port 80, which is needed for the handshake confirming it's behind the (sub-)domain in question.
+I guess my ISP has a https://en.wikipedia.org/wiki/Network_address_translation[NAT] between my router and the rest of the internet because they've run out of IPv4-addresses and combined my connection with that of my neighbours.
+And I'm pretty sure that's also the reason why I can only get onto my NAS via IPv6.
+
+Luckily, there is a manual way to create SSL-certs with Let's Encrypt: certbot!
+
+== Certbot
+
+https://certbot.eff.org/[Certbot] is a terminal tool for getting SSL-certificates from Let's Encrypt.
+
+It's installed the usual way:
+
+[source, Bash]
+.Install certbot
+----
+sudo apt-get install certbot
+----
+
+It's normal use case is for it to be tailored to your specific web-server environment and to then automatically getting and renewing your certs.
+I think.
+I haven't really used it that way.
+Because my use case definitely _isn't_ normal.
+
+=== Manual DNS Challenge Validation with Certbot
+
+But no worries, certbot comes with a https://eff-certbot.readthedocs.io/en/latest/using.html#manual[manual mode]!
+Judging by the way it isn't mentioned anywhere on its website and only discoverable if you carefully dig through its documentation, I'm sure the EFF doesn't really want you to use it that way, but hey, I'm an IT-Neanderthal smashing rocks.
+It sticks, and then it works.
+
+Despite all that, using it this way is rather easy.
+While it has many possible arguments/parameters, the following is enough to get a basic DNS-Challenge going:
+
+[source, Bash]
+.Create bare ssl-certs, using DNS-challenge
+----
+sudo certbot certonly --preferred-challenges dns
+----
+
+* `certonly` tells certbot to just create the certificate files without (trying to) installing them on your system.
+This also means, that you can run this command on any machine you like and then transfer the cert files somewhere else.
+
+* `--preferred-challenges dns` ensures that the DNS-challenge method is actually used, otherwise it would try its default http-port-80 handshake.
+Which doesn't work, because otherwise we wouldn't be here...
+
+How to go through the rest of the process from there should be pretty self-explanatory:
+You enter some needed info about yourself and the (sub-)domain you need the cert for and are then given a TXT-record that you have to enter into the DNS-configuration of said (sub-)domain{empty}footnote:[If you don't know what that is, you shouldn't be reading this post, but an intro to DNS-configurations, followed by the documentation of your domain registrar about how to create one. Then come back to this post. Don't worry, it'll still be here.].
+Once you've done that and waited some time for it to propagate, you can tell certbot to continue and should receive your cert-files wherever certbot likes to put them (don't worry, it'll tell you).
+
+=== (Semi-)Automatic Use of certbot
+
+So far, so good.
+This is how I got the certs for my current setup, but unfortunately SSL-certs tend to expire rather quickly when created this way.
+
+Luckily, certbot has https://eff-certbot.readthedocs.io/en/latest/using.html#pre-and-post-validation-hooks[automation hooks] that are intended to be used in automating the process.
+
+I haven't got around to tinker with it yet, but I'm sure I'll figure it out(TM).
+
+== The Dynadot API
+
+This brings us to the need of automatically editing our DNS-config so the TXT record shows the desired value.
+And since automatic DNS-config changes are something very big companies would like to do, dynadot has an https://www.dynadot.com/domain/api-commands[API] for that!
+And they even let tiny €7.50/year customers like me use it for free!
+
+[NOTE]
+====
+In order to use the API, you need to generate a key specific for your account.
+At the very top of the documentation, under `general`, there is a guide on how to create one.
+Don't worry, it's free.
+As far as I know...
+====
+
+The API can do all kinds of things, but we only need to two commands:
+`get_dns` and `set_dns2`
+
+[CAUTION]
+====
+`set_dns2` *OVERWRITES* your current DNS-configuration (as long as you give it a valid new one)!
+Be sure to triple check any API-call invoking it and ideally comment-out all invocations until you are sure you are production ready!
+====
+
+All calls to API are addressed to `https://api.dynadot.com/api3.xml`, together with your key, the command you want to use and any other parameters.
+Every API-command in the documentation has an example for how to use it.
+From these examples, you should be able to figure out the general gist of the API-calls.
+
+As to how to make those calls, I'm gonna be using `curl`.
+I'm sure there are other ways, but this one works for me in this case.
+
+As a general sanity check, let's run the following bash script:
+
+[source, Bash]
+.API sanity check
+----
+api_key="your_API_key"
+domain="your_registered_domain"
+
+curl "https://api.dynadot.com/api3.xml?key=$api_key&command=get_dns&domain=$domain"
+----
+
+If everything is set up correctly, this will return an (unformatted) XML-response containing everything you need to know about your current DNS-config.
+But you will receive it as one continuous string, so throwing it into an XML-formatter is much recommended for better readability.
+
+For example, this is my DNS-configuration at the time of writing (feel free to laugh):
+
+[source, XML]
+.api_get_response.xml
+----
+include::api_get_response.xml[]
+----
+
+=== Read & Save Current dynadot DNS-Config via the API-Call
+
+With the API-call successfully tested, we are ready to start!
+
+Unfortunately I don't think you can store an XML-file/structure directly as a variable in bash, so we have to output the API-response into a proper, if temporary XML-file.
+
+Simple enough, we merely have to expand our test-script a little:
+
+[source, Bash]
+.Get current DNS-config and store it into local file
+----
+api_key="your_API_key"
+domain="your_registered_domain"
+
+# Get current DNS-configuration from dynadot API and store it in a local and temporary XML-file.
+curl "https://api.dynadot.com/api3.xml?key=$api_key&command=get_dns&domain=$domain" > ./api_get_response.xml
+----
+
+This will create a new file (overwriting any existing file) with the response stored inside it.
+We can now access the contents specific nodes of the XML-file using `xmllint`.
+In case you don't have it yet, you can get it via the `libxml2-utils` package:
+
+[source, Bash]
+.Install libxml2-utils
+----
+sudo apt install libxml2-utils
+----
+
+Using `xmllint` to access nodes and their value is... completely archaic, honestly.
+You'll see why in the next chapter.
+
+=== Check if API-Call was Successful
+
+Since we want to automatically access the dynadot API, we should first check if we actually posted a correct call and got a valid response.
+You never know what might change over the years over which you forgot you had this script running.
+
+The easiest way is to check if the API-response has the response-code `0`.
+This value is stored at the node `/GetDnsResponse/GetDnsHeader/ResponseCode`, the code to access and store it in a variable for later use looks like this (using the file we created in the last chapter):
+
+[source, Bash]
+.Extract API-response code
+----
+include::get_current_dns_settings.sh[lines=22..23]
+----
+
+Like I said, using `xmllint` is pretty archaic.{empty}footnote:[And to be honest, I have *no* idea what the `sed '1d;$d'` part even does...]
+But it works and that is the most important part!
+
+Going on from here, we simply check if it's actually `0` (or rather, if it's anything _but_ `0`):
+
+[source, Bash]
+----
+include::get_current_dns_settings.sh[lines=25..29]
+----
+
+=== Iterating through Main Domain Records
+
+In order to go through all main domain records, we need to make a few preparations:
+
+First, since the path to the nodes is quite long, we'll store it in a variable:
+
+[source, Bash]
+.Check if API-call was successful (response code 0), break if not
+----
+include::get_current_dns_settings.sh[lines=12..13]
+----
+
+Since we (probably) have multiple main domain records defined and need to copy/recreate each one, we have to iterate through all of them.
+As far as I know, we can't do that directly, but have to set up a `for`-loop instead.
+
+First we count the number of sub-nodes under the "/GetDnsResponse/GetDnsContent/NameServerSettings/MainDomains" node, then we loop through them and extract the type and value of each one.
+Then we format them into the format the API wants and add them to a string-variable, so we can easily use them later:
+
+[source, Bash]
+.Iterating through previous main domain records
+----
+include::get_current_dns_settings.sh[lines=31..54]
+----
+
+=== Iterating through Subdomain Records, Checking and Changing It
+
+The process for the subdomain-records is _almost_ identical, but with some important differences.
+
+We need to copy every record *except* the one containing our old challenge-key.
+That one we need to set to the new challenge-key that we get from certbot.
+
+And to make sure we have actually changed anything, we set up a control-flag to indicate a change.
+If we've run through every record without editing one, something went wrong.{empty}footnote:[I'm thinking about adding another check to make sure we change _exactly_ one entry, not just _at least_ one as the current one does. But as of now, I can't be bothered...]
+
+All this results into the following code:
+
+[source, Bash]
+.Iterating through previous subdomain records, changing the required one
+----
+challenge_node="domain_for_txt_record"
+new_challenge_key="new_txt_record_from_certbot"
+
+include::get_current_dns_settings.sh[lines=58..97]
+----
+
+=== Combine results and post Set-API Call
+
+For easier readability, I've separated the combining of all those records into two steps:
+
+[source, Bash]
+.Combining the results into one API-request
+----
+api_key="your_API_key"
+domain="your_registered_domain"
+set_command="set_dns2"
+get_command="get_dns"
+api_url="https://api.dynadot.com/api3.xml"
+
+include::get_current_dns_settings.sh[lines=98..102]
+----
+
+== TL;DR: The Full Code
+
+The following is my complete code as of now.
+It's not completely ready to be used together with certbot yet, but it would work in changing the specified subdomain record to a new value.{empty}footnote:[I *think*, I haven't actually run it against the API yet...] +
+The integration of certbot will be done in Part 2 of this series.
+
+[source, Bash]
+.get_current_dns_settings.sh
+----
+include::get_current_dns_settings.sh[]
+----
+
+== Personal Closing Thoughts
+
+NOTE: The following is just me ranting about the progress, nothing important to see here.
+
+This has become a bigger side-side-project than I expected.
+As the subtitle says, I think this is at least the 3rd diversion I've taken since starting my https://github.com/Landhund/Easy_Wiring[Easy Wiring] side project (see link:{{< ref "001-simple_circuits_beginnings" >}}[this post]).
+
+Getting into Bash was one special personal hell, so much so that I have split of a sizable part of this section into its own rant-y blog-post. Let's see if I take the time to finish it at some point (Let's go 4 diversions deep!).
+
+Also, while writing this post over the last week (dear god, that took a long time...), I've completely overhauled redone the way syntax-highlighting is handled on the blog, going from https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/rouge/[rouge] to https://prismjs.com/[prism.js], tinkering with it for a few days to get it just working and looking how I want it, only to find out my bash code breaks the regex and having to scrap all of it and finally switching to https://highlightjs.org/[highlight.js].
+Also, I think I've managed to somewhat break `rouge`, since I can't get it running again.
+Oh well, highlight.js works pretty well for now and I think I can manually add/write the additional features I want.
+
+Actually, that reminds me, I should write a dev-log about that journey...

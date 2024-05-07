@@ -1,0 +1,62 @@
+---
+title: Editing dynadot DNS-settings via API-calls in Bash, Part 1.5
+summary: Player Two has entered the Game.
+description: Player Two has entered the Game.
+date: 2024-05-06T08:00:00+01:00
+draft: True #TODO: Set to false when ready to publish
+tags: ["Blog", "Web-Dev", "Bash", "DNS", "Synology", "API"]
+toc: true
+series: ["Dynadot-DNS-Bash"]
+---
+
+:toc:
+:icons: font
+
+## Intro (skipable)
+
+Good news: I've received my first non-spam email through this blog and thus gained a collaborator for my Dynadot-DNS-Bash project!
+
+GitHub-user https://github.com/pradoh97[pradoh97] got in touch with me, offering an improved version of my dynadot-api-bash script from link:{{< ref "003-dynadot-dns-api-part1" >}}[my previous blog post].
+
+They've noticed that my original code couldn't handle special URI characters, as well as mx-records, for which the API actually expects two values.
+So they made some (much needed) adjustments.
+Since they didn't find a repo of the code for a pull-request{empty}footnote:[Because I didn't create one... Did I mention already I'm an IT-Neanderthal?],
+they created https://github.com/pradoh97/Dynadot-api[their own repository for it] and kindly invited me as an collaborator in it.
+
+## The New Script
+
+Over the last few days, pradoh97 kindly reworked my primitive first draft into something much better looking and better working.
+At the time of writing, this is their current version of the code:
+
+[%collapsible]
+.[Click to Open] Pradoh97's modified version of the initial script (Commit https://github.com/pradoh97/Dynadot-api/blob/bdcb610f2da49b9d6d2653df1d2fe84de1d2368c/dynadot.sh[bdcb610])
+====
+[source, Bash]
+----
+include::https://raw.githubusercontent.com/pradoh97/Dynadot-api/bdcb610f2da49b9d6d2653df1d2fe84de1d2368c/dynadot.sh[]
+----
+====
+
+## Changelog
+
+* lowercase and trim of record types (so "MX" is now "mx")
+* added a secondary value for priority
+* encode URI special characters, so a parameter with the following value zone=south would be encoded into zone%20south, otherwise the request is illformed
+* reduced the offset of the while loop so there's no gap between the last record and the new one. If the last record was 2nd, it would create the 4th rather than the 3rd.
+* use of certbot environment variables
+* camelcased all the variables (this of course changes nothing at all)
+* added prerequisites installation
+* added timestamps to log file
+* moved code to functions
+* added validation for api call
+* separate responses for get and set
+* added API length check
+
+## TODO-List
+
+Pradoh97 also started a https://github.com/pradoh97/Dynadot-api/blob/main/TODO[TODO-list] of things we still need to do at some point.
+
+## What's to Come
+
+Neither pradoh97 nor me have a lot of free time, but we'll try to get some work done on the script and I'll see if I can't set aside a few hours to finally start working on a fully automated setup with certbot.
+If anyone reading this is interested in helping out in any way, throw me an email, open a pull-request or issue, or send us a carrier pigeon.

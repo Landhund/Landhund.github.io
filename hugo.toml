@@ -87,8 +87,7 @@ enableGitInfo = true
 [taxonomies]
     category = "blog"
     tag      = "tags"
-    # series   = "series"
-    # series   = "series"
+    series   = "series"
 [permalinks]
   posts = "/posts/:year/:month/:title/"
 [menu]

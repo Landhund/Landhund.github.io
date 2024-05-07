@@ -3,7 +3,7 @@ title: Editing dynadot DNS-settings via API-calls in Bash, Part 1.5
 summary: Player Two has entered the Game.
 description: Player Two has entered the Game.
 date: 2024-05-06T08:00:00+01:00
-draft: True #TODO: Set to false when ready to publish
+draft: false #TODO: Set to false when ready to publish
 tags: ["Blog", "Web-Dev", "Bash", "DNS", "Synology", "API"]
 toc: true
 series: ["Dynadot-DNS-Bash"]

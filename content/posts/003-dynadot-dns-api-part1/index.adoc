@@ -6,7 +6,7 @@ date: 2024-03-11T16:00:00+01:00
 draft: false
 tags: ["Blog", "Web-Dev", "Bash", "DNS", "Synology", "API"]
 toc: true
-series: "dynadot-dns-bash"
+series: ["Dynadot-DNS-Bash"]
 ---
 
 :toc:
@@ -261,6 +261,9 @@ include::get_current_dns_settings.sh[lines=98..102]
 ----
 
 == TL;DR: The Full Code
+
+IMPORTANT: There is a new version of this script, as described in the link:{{< ref "004-dynadot-dns-api-part1-5" >}}[followup post] to this one!
+Please refer to the one posted there for future reference.
 
 The following is my complete code as of now.
 It's not completely ready to be used together with certbot yet, but it would work in changing the specified subdomain record to a new value.{empty}footnote:[I *think*, I haven't actually run it against the API yet...] +
